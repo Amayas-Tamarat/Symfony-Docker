@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+    mysql:
+        container_name: symfony_mysql
+        image: mysql:8.0.20
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - "db_app:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: RootPassword
+        ports:
+            - '3306:3306'
+        networks:
+            - symfony
+    php:
+        container_name: symfony_php
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        volumes:
+            - ./symfony:/var/www/symfony/
+        networks:
+            - symfony
+    nginx:
+        container_name: symfony_nginx
+        build:
+            context: .
+            dockerfile: docker/nginx/Dockerfile
+        volumes:
+            - ./symfony:/var/www/symfony/
+        ports:
+            - '80:80'
+        networks:
+            - symfony
+    phpmyadmin:
+        container_name: symfony_phpmyadmin
+        image: phpmyadmin/phpmyadmin:latest
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+            PMA_USER: root
+            PMA_PASSWORD: RootPassword
+            UPLOAD_LIMIT: 512M
+        ports:
+            - '8080:80'
+        depends_on:
+            - mysql
+        networks:
+            - symfony
+
+volumes:
+    db_app:
+
+networks:
+    symfony:
