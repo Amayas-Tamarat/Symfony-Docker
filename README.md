@@ -1,5 +1,3 @@
-# Prérequis
-
 # Les containers
 
 - ## Lancer les containers.
@@ -22,9 +20,9 @@ docker exec -it symfony_php bash
 
 - ## Recréer le projet symfony (bien vider le dossier symfony avant)
 
->symfony new symfony --dir=/var/www/symfony --no-git
+> symfony new symfony --dir=/var/www/symfony --no-git && chmod -R 777 /var/www/symfony
 
-Pour spécifier la version de symfony if faut ajouter `--version="(version)"`
+Pour spécifier la version de symfony if faut ajouter `--version="(version)"` derriere `--no-git`
 
 - ## Les Packages
 
