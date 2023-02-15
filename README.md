@@ -1,3 +1,9 @@
+# Prérequis
+
+Modifier le fichier .env
+ - Changer le prefix des containers
+ - Optionnel - Changer le nom de la base et le mdp root
+
 # Les containers
 
 - ## Lancer les containers.
@@ -9,6 +15,8 @@ docker-compose up -d
 Le préfix -d` empêche d'avoir les logs dans le terminal après le lançement.
 
 S'ils sont lancés pour la première fois, les containers vont metre du temps à s'installer
+
+Projet : https://localhost | PHPMyAdmin : https://localhost:8080
 
 - ## Accéder au terminal du container PHP pour les commandes
 
