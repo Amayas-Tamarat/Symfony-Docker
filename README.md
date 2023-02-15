@@ -1,12 +1,12 @@
 # Prérequis
 
-- Changer les identifiants git à la fin de [docker/php/Dockerfile](docker/php/Dockerfile)
-
 # Les containers
 
 - ## Lancer les containers.
 
->docker-compose up -d
+```Shell
+docker-compose up -d
+```
 
 Le préfix -d` empêche d'avoir les logs dans le terminal après le lançement.
 
@@ -14,13 +14,15 @@ S'ils sont lancés pour la première fois, les containers vont metre du temps à s'
 
 - ## Accéder au terminal du container PHP pour les commandes
 
->docker exec -it symfony_php bash
+```Shell
+docker exec -it symfony_php bash
+```
 
 # Symfony
 
-- ## Recréer le projet symfony
+- ## Recréer le projet symfony (bien vider le dossier symfony avant)
 
->symfony new symfony --dir=/var/www/symfony
+>symfony new symfony --dir=/var/www/symfony --no-git
 
 Pour spécifier la version de symfony if faut ajouter `--version="(version)"`
 
@@ -33,6 +35,7 @@ Pour spécifier la version de symfony if faut ajouter `--version="(version)"`
     > composer require twig
 
     - ### Doctrine
+      - dire non 'x' quand on demande de modifier/créer la config docker
     > composer require symfony/orm-pack
  
     - ### Maker Bundle

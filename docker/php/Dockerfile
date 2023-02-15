@@ -33,9 +33,7 @@ RUN docker-php-ext-install \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN git config --global user.email "you@example.com" \
-    && git config --global user.name "Your Name"
-
+RUN mkdir -p /var/www/symfony && chmod -R 777 /var/www/symfony
 WORKDIR /var/www/symfony
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash \

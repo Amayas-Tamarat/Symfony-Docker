@@ -8,7 +8,7 @@ services:
         volumes:
             - "db_app:/var/lib/mysql"
         environment:
-            MYSQL_ROOT_PASSWORD: RootPassword
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         ports:
             - '3306:3306'
         networks:
@@ -18,6 +18,8 @@ services:
         build:
             context: .
             dockerfile: docker/php/Dockerfile
+        environment:
+            DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD}@mysql/${DB_NAME}?serverVersion=8&charset=utf8mb4
         volumes:
             - ./symfony:/var/www/symfony/
         networks:
@@ -41,7 +43,7 @@ services:
             PMA_HOST: mysql
             PMA_PORT: 3306
             PMA_USER: root
-            PMA_PASSWORD: RootPassword
+            PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             UPLOAD_LIMIT: 512M
         ports:
             - '8080:80'
