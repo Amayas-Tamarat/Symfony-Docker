@@ -16,7 +16,7 @@ Le préfix -d` empêche d'avoir les logs dans le terminal après le lançement.
 
 S'ils sont lancés pour la première fois, les containers vont metre du temps à s'installer
 
-Projet : https://localhost | PHPMyAdmin : https://localhost:8080
+Projet : http://localhost | PHPMyAdmin : https://localhost:8080
 
 - ## Accéder au terminal du container PHP pour les commandes
 
@@ -49,3 +49,6 @@ Pour spécifier la version de symfony if faut ajouter `--version="(version)"` der
 
     - ### Security Bundle
     > composer require symfony/security-bundle
+
+    - ### Assets
+    > composer require symfony/asset
