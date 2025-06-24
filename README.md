@@ -26,8 +26,8 @@ docker-compose up -d
 - Lors du premier lancement, l'installation des conteneurs peut prendre un certain temps.
 
 Une fois démarré :
-- **Projet Symfony** : [http://localhost](http://localhost)
-- **PHPMyAdmin** : [http://localhost:8080](http://localhost:8080)
+- **Projet Symfony** : [http://localhost](http://localhost) (You need to create a new project with the command below. )
+- **PHPMyAdmin** : [http://localhost:8080](http://localhost:8080) (You may have a error, just refresh your page.)
 
 ### Accéder au terminal du conteneur PHP
 Si vous avez besoin d'exécuter des commandes dans le conteneur PHP, utilisez :
@@ -61,19 +61,9 @@ symfony new symfony --dir=/var/www/symfony --no-git && chmod -R 777 /var/www/sym
 
 Voici une liste de packages utiles pour Symfony et comment les installer.
 
-### Routes avec Annotations
+### Doctrine (ORM pour la base de données) 
+(You need this one for the maker bundle)
 
-```sh
-composer require annotations
-```
-
-### Twig (Moteur de Templates)
-
-```sh
-composer require twig
-```
-
-### Doctrine (ORM pour la base de données)
 Lorsque l'installation demande de modifier/créer la configuration Docker, répondez **non** (`x`).
 
 ```sh
@@ -84,6 +74,18 @@ composer require symfony/orm-pack
 
 ```sh
 composer require --dev symfony/maker-bundle
+```
+
+### Routes avec Annotations
+
+```sh
+composer require annotations
+```
+
+### Twig (Moteur de Templates)
+
+```sh
+composer require twig
 ```
 
 ### Security Bundle (Gestion des utilisateurs et de l'authentification)
@@ -102,7 +104,6 @@ composer require symfony/asset
 
 ## 5. Prochaines Étapes
 - Configurer votre `.env` en fonction de vos besoins.
-- Lancer votre projet Symfony avec `symfony server:start` (optionnel si vous utilisez Docker).
 - Tester l'accès à votre base de données avec PHPMyAdmin.
 - Commencer à développer ! 
 
