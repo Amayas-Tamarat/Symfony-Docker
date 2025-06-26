@@ -55,9 +55,15 @@ symfony new symfony --dir=/var/www/symfony --no-git && chmod -R 777 /var/www/sym
   --version="(version)"
   ```
 
+  - Pour crée un projet avec les plugins nécessaire pour une aplication web déja installés, ajoutez l'option suivante :
+
+  ```sh
+  --webapp
+  ```
+
 ---
 
-## 4. Installation des Packages Symfony
+## 4. Installation des Packages Symfony (pas nécessaire si vous avez fait une webapp.)
 
 Voici une liste de packages utiles pour Symfony et comment les installer.
 
