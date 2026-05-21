@@ -39,4 +39,4 @@ RUN mkdir -p /var/www/symfony && chmod -R 777 /var/www/symfony
 WORKDIR /var/www/symfony
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
-    && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+    && mv $(find /root -name "symfony" -type f 2>/dev/null | head -1) /usr/local/bin/symfony
